@@ -23,15 +23,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.3.3"
+version = "2.1.3"
 
 project.extra["PluginName"] = "iBlackjack"
 project.extra["PluginDescription"] = "Illumine - Blackjack plugin"
 
 dependencies {
     compileOnly(project(":iutils"))
-    //compileOnly(group = "com.openosrs.externals", name = "iutils", version = "1.1.0+")
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
 }
 
 tasks {
@@ -43,8 +41,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
+                                    nameToId("iUtils")
                             ).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]

@@ -23,14 +23,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "3.2.1"
+version = "4.1.3"
 
 project.extra["PluginName"] = "iMagic Caster"
 project.extra["PluginDescription"] = "Illumine automated magic caster"
 
 dependencies {
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
 }
 
 tasks {
@@ -42,8 +41,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
+                                    nameToId("iUtils")
                             ).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]

@@ -25,233 +25,79 @@
  */
 package net.runelite.client.plugins.imenudebugger;
 
-import net.runelite.client.config.Button;
-import net.runelite.client.config.Config;
-import net.runelite.client.config.ConfigGroup;
-import net.runelite.client.config.ConfigItem;
-import net.runelite.client.config.ConfigSection;
-import net.runelite.client.config.Range;
+import net.runelite.client.config.*;
 
 @ConfigGroup("iMenuDebugger")
-public interface iMenuDebuggerConfig extends Config
-{
+public interface iMenuDebuggerConfig extends Config {
 
-	@ConfigSection(
-		keyName = "delayConfig",
-		name = "Sleep Delay Configuration",
-		description = "Configure how the bot handles sleep delays",
-		position = 0
-	)
-	default boolean delayConfig()
-	{
-		return false;
-	}
+    @ConfigItem(
+            keyName = "menuClicked",
+            name = "Log Menu Clicked events",
+            description = "Enable to log menu option clicked events",
+            position = 10
+    )
+    default boolean menuClicked() {
+        return true;
+    }
 
-	@Range(
-		min = 0,
-		max = 550
-	)
-	@ConfigItem(
-		keyName = "sleepMin",
-		name = "Sleep Min",
-		description = "",
-		position = 1,
-		section = "delayConfig"
-	)
-	default int sleepMin()
-	{
-		return 60;
-	}
+    @ConfigItem(
+            keyName = "widget",
+            name = "Log Widget spawned/despawned events",
+            description = "Enable to log widget spawned/despawned events",
+            position = 20
+    )
+    default boolean widget() {
+        return false;
+    }
 
-	@Range(
-		min = 0,
-		max = 550
-	)
-	@ConfigItem(
-		keyName = "sleepMax",
-		name = "Sleep Max",
-		description = "",
-		position = 2,
-		section = "delayConfig"
-	)
-	default int sleepMax()
-	{
-		return 350;
-	}
+    @ConfigItem(
+            keyName = "chatMessage",
+            name = "Log Chat events",
+            description = "Enable to log chat events",
+            position = 20
+    )
+    default boolean chatMessage() {
+        return false;
+    }
 
-	@Range(
-		min = 0,
-		max = 550
-	)
-	@ConfigItem(
-		keyName = "sleepTarget",
-		name = "Sleep Target",
-		description = "",
-		position = 3,
-		section = "delayConfig"
-	)
-	default int sleepTarget()
-	{
-		return 100;
-	}
+    @ConfigItem(
+            keyName = "printChat",
+            name = "Print to game chat",
+            description = "Enable to print menu entry to game chat",
+            position = 50
+    )
+    default boolean printChat() {
+        return true;
+    }
 
-	@Range(
-		min = 0,
-		max = 550
-	)
-	@ConfigItem(
-		keyName = "sleepDeviation",
-		name = "Sleep Deviation",
-		description = "",
-		position = 4,
-		section = "delayConfig"
-	)
-	default int sleepDeviation()
-	{
-		return 10;
-	}
+    @ConfigItem(
+            keyName = "varbit",
+            name = "Varbit ID",
+            description = "Provide Varbit ID then press the Print Varb/Varp button print the value of it to chat",
+            position = 60
+    )
+    default int varbit() {
+        return 0;
+    }
 
-	@ConfigItem(
-		keyName = "sleepWeightedDistribution",
-		name = "Sleep Weighted Distribution",
-		description = "Shifts the random distribution towards the lower end at the target, otherwise it will be an even distribution",
-		position = 5,
-		section = "delayConfig"
-	)
-	default boolean sleepWeightedDistribution()
-	{
-		return false;
-	}
+    @ConfigItem(
+            keyName = "varPlayer",
+            name = "VarPlayer ID",
+            description = "Provide VarPlayer ID then press the Print Varb/Varp button print the value of it to chat",
+            position = 65
+    )
+    default int varPlayer() {
+        return 0;
+    }
 
-	@ConfigSection(
-		keyName = "delayTickConfig",
-		name = "Game Tick Configuration",
-		description = "Configure how the bot handles game tick delays, 1 game tick equates to roughly 600ms",
-		position = 10
-	)
-	default boolean delayTickConfig()
-	{
-		return false;
-	}
-
-	@Range(
-		min = 0,
-		max = 10
-	)
-	@ConfigItem(
-		keyName = "tickDelayMin",
-		name = "Game Tick Min",
-		description = "",
-		position = 11,
-		section = "delayTickConfig"
-	)
-	default int tickDelayMin()
-	{
-		return 1;
-	}
-
-	@Range(
-		min = 0,
-		max = 10
-	)
-	@ConfigItem(
-		keyName = "tickDelayMax",
-		name = "Game Tick Max",
-		description = "",
-		position = 12,
-		section = "delayTickConfig"
-	)
-	default int tickDelayMax()
-	{
-		return 3;
-	}
-
-	@Range(
-		min = 0,
-		max = 10
-	)
-	@ConfigItem(
-		keyName = "tickDelayTarget",
-		name = "Game Tick Target",
-		description = "",
-		position = 13,
-		section = "delayTickConfig"
-	)
-	default int tickDelayTarget()
-	{
-		return 2;
-	}
-
-	@Range(
-		min = 0,
-		max = 10
-	)
-	@ConfigItem(
-		keyName = "tickDelayDeviation",
-		name = "Game Tick Deviation",
-		description = "",
-		position = 14,
-		section = "delayTickConfig"
-	)
-	default int tickDelayDeviation()
-	{
-		return 1;
-	}
-
-	@ConfigItem(
-		keyName = "tickDelayWeightedDistribution",
-		name = "Game Tick Weighted Distribution",
-		description = "Shifts the random distribution towards the lower end at the target, otherwise it will be an even distribution",
-		position = 15,
-		section = "delayTickConfig"
-	)
-	default boolean tickDelayWeightedDistribution()
-	{
-		return false;
-	}
-
-	@ConfigItem(
-		keyName = "printChat",
-		name = "Print to game chat",
-		description = "Enable to print menu entry to game chat",
-		position = 20
-	)
-	default boolean printChat()
-	{
-		return true;
-	}
-
-	@ConfigItem(
-		keyName = "testID",
-		name = "Test ID",
-		description = "",
-		position = 30
-	)
-	default int testID()
-	{
-		return 0;
-	}
-
-	@ConfigItem(
-		keyName = "enableUI",
-		name = "Enable UI",
-		description = "Enable to turn on in game UI",
-		position = 100
-	)
-	default boolean enableUI()
-	{
-		return true;
-	}
-
-	@ConfigItem(
-		keyName = "startButton",
-		name = "Start/Stop",
-		description = "Test button that changes variable value",
-		position = 110
-	)
-	default Button startButton()
-	{
-		return null;
-	}
-
+    @ConfigItem(
+            keyName = "printVar",
+            name = "Print Varb/Varp",
+            description = "Press to print the provided varb/varp values to chat",
+            position = 70,
+            title = "agilityTitle"
+    )
+    default Button printVar() {
+        return new Button();
+    }
 }

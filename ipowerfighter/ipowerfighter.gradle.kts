@@ -23,14 +23,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "3.4.1"
+
+version = "4.2.8"
 
 project.extra["PluginName"] = "iPowerfighter Plugin"
 project.extra["PluginDescription"] = "Illumine - Powerfighter plugin"
 
 dependencies {
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
 }
 
 tasks {
@@ -42,9 +42,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
-                            ).joinToString(),
+                                    nameToId("iUtils")).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]
             ))

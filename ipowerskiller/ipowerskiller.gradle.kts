@@ -23,14 +23,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "5.0.2"
+version = "6.1.4"
 
 project.extra["PluginName"] = "iPower Skiller"
 project.extra["PluginDescription"] = "Illumine auto power skiller plugin"
 
 dependencies {
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
 }
 
 tasks {
@@ -42,9 +41,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
-                            ).joinToString(),
+                                    nameToId("iUtils")).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]
             ))

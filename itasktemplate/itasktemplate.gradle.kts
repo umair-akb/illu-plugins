@@ -23,15 +23,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.0.2"
+version = "4.0.1"
 
 project.extra["PluginName"] = "iTaskTemplate"
 project.extra["PluginDescription"] = "Illumine - Task Template plugin"
 
 dependencies {
-    //compileOnly(group = "com.openosrs.externals", name = "iutils", version = "1.0.0+") uncomment this is you want to use this in a project that doesn't also hold iUtils
+    //compileOnly(group = "com.openosrs.externals", name = "iutils", version = "4.0.0+") uncomment this is you want to use this in a project that doesn't also hold iUtils
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
 }
 
 tasks {
@@ -43,8 +42,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
+                                    nameToId("iUtils")
                             ).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]

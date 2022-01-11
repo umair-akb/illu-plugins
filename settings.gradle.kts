@@ -25,15 +25,18 @@
 
 rootProject.name = "Illumine Plugins"
 
-include(":botutils")
 include(":iutils")
 include("iblackjack")
 include(":icombinationrunecrafter")
+include("disablerendering")
 include("iherbcleaner")
+include("iitemcombiner")
 include(":imagiccaster")
 include(":imenudebugger")
 include(":ipowerfighter")
 include(":ipowerskiller")
+include("iquestassistant")
+include("iquesterfree")
 include(":iquickeater")
 include(":irandomhandler")
 include(":irooftopagility")

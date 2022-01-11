@@ -23,14 +23,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "2.0.2"
+version = "3.1.4"
 
 project.extra["PluginName"] = "iCombination Runecrafter Plugin"
 project.extra["PluginDescription"] = "Illumine - Combination Runecrafting plugin"
 
 dependencies {
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "+")
+
 }
 
 tasks {
@@ -42,8 +42,7 @@ tasks {
                     "Plugin-Provider" to project.extra["PluginProvider"],
                     "Plugin-Dependencies" to
                             arrayOf(
-                                    nameToId("iUtils"),
-                                    "chinbreakhandler-plugin"
+                                    nameToId("iUtils")
                             ).joinToString(),
                     "Plugin-Description" to project.extra["PluginDescription"],
                     "Plugin-License" to project.extra["PluginLicense"]
